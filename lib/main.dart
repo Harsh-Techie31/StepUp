@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stepup/global_var.dart';
 import 'package:stepup/home_page.dart';
+import 'package:stepup/prod_details.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,15 +16,33 @@ class MyApp extends StatelessWidget {
       title: "StepUp-N0VA",
       theme: ThemeData(
         fontFamily: "cinzel",
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromRGBO(254, 206, 1, 1),
-        primary: const Color.fromRGBO(254, 206, 1, 1)),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromRGBO(254, 206, 1, 1),
+            primary: const Color.fromRGBO(254, 206, 1, 1)),
         inputDecorationTheme: const InputDecorationTheme(
-          hintStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,),
+          hintStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
           prefixIconColor: Color.fromRGBO(119, 119, 119, 1),
-        ))
-      ,
+        ),
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
+          titleMedium: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+          bodySmall: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
+      ),
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home:  const HomePage(),
+      //home:  ProdDetails(
+       // product: products[0],
+      //),
     );
   }
 }
