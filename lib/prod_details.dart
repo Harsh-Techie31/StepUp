@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:stepup/cartProvider.dart';
 
 class ProdDetails extends StatefulWidget {
   final Map<String, Object> product;
@@ -13,7 +15,7 @@ class ProdDetails extends StatefulWidget {
 }
 
 class _ProdDetailsState extends State<ProdDetails> {
-  int? selectedSize;
+  int? selectedSize =0;
   @override
   //void initState() {
   //  super.initState();
@@ -82,7 +84,9 @@ class _ProdDetailsState extends State<ProdDetails> {
                               },
                               child: Chip(
                                 label: Text(size.toString()),
-                                labelStyle:const TextStyle(fontSize: 15,),
+                                labelStyle: const TextStyle(
+                                  fontSize: 15,
+                                ),
                                 //labelPadding: const EdgeInsets.all(5),
                                 backgroundColor: selectedSize == size
                                     ? Theme.of(context).colorScheme.primary
@@ -106,7 +110,29 @@ class _ProdDetailsState extends State<ProdDetails> {
                                   Theme.of(context).colorScheme.primary,
                               foregroundColor: Colors.black,
                               minimumSize: const Size(double.infinity, 50)),
-                          onPressed: () {},
+                          onPressed: () {
+                            if (selectedSize != 0) {
+                              Provider.of<CartProvider>(context, listen: false)
+                                  .addProduct({
+                                'id': widget.product['id'],
+                                'title': widget.product['title'],
+                                'price': widget.product['price'],
+                                'imageUrl': widget.product['imageUrl'],
+                                'company': widget.product['company'],
+                                'size': selectedSize,
+                              });
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                content: Text("Product Added!"),
+                              ));
+
+                            } else {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                content: Text("Choose a size !"),
+                              ));
+                            }
+                          },
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

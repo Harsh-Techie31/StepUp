@@ -41,29 +41,3 @@ final products = [
   },
 ];
 
-final cart = [
-  {
-    'id': '4',
-    'title': 'Sketchers Rough',
-    'price': 39.69,
-    'imageUrl': 'assets/images/5.png',
-    'company': 'Sketchers',
-    'size': '8',
-  },
-  {
-    'id': '3',
-    'title': 'Reebok Light',
-    'price': 24.65,
-    'imageUrl': 'assets/images/4.png',
-    'company': 'Reebok',
-    'sizes': 10,
-  },
-  {
-    'id': '0',
-    'title': 'Adidas Canvas',
-    'price': 44.52,
-    'imageUrl': 'assets/images/1.png',
-    'company': 'Adidas',
-    'sizes': 9,
-  },
-];
