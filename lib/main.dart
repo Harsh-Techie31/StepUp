@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stepup/global_var.dart';
 import 'package:stepup/home_page.dart';
-import 'package:stepup/prod_details.dart';
 
 void main() {
   runApp(const MyApp());
