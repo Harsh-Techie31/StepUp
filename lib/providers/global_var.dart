@@ -33,7 +33,7 @@ final products = [
   },
   {
     'id': '4',
-    'title': 'Sketchers Rough',
+    'title': 'Skechers Rough',
     'price': 39.69,
     'imageUrl': 'assets/images/5.png',
     'company': 'Skechers',

@@ -1,4 +1,3 @@
-
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
@@ -40,18 +39,33 @@ class _ProductListState extends State<ProductList> {
     }
   }
 
+  void sortProducts(String sortBy) {
+    setState(() {
+      if (sortBy == 'A-Z') {
+        products.sort(
+            (a, b) => (a['title'] as String).compareTo(b['title'] as String));
+      } else if (sortBy == 'Price Low to High') {
+        products.sort(
+            (a, b) => (a['price'] as double).compareTo(b['price'] as double));
+      } else if (sortBy == 'Price High to Low') {
+        products.sort(
+            (a, b) => (b['price'] as double).compareTo(a['price'] as double));
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    const border = OutlineInputBorder(
-      borderSide: BorderSide(
-        color: Color.fromRGBO(225, 225, 225, 1),
-      ),
-      borderRadius: BorderRadius.horizontal(left: Radius.circular(50)),
-    );
+    // const border = OutlineInputBorder(
+    //   borderSide: BorderSide(
+    //     color: Color.fromRGBO(225, 225, 225, 1),
+    //   ),
+    //   borderRadius: BorderRadius.horizontal(left: Radius.circular(50)),
+    // );
 
     // Get the filtered products based on the selected filter
     final filteredProducts = getFilteredProducts();
-
+    // String? selectedValue = 'A-Z';
     return SafeArea(
       child: Column(
         children: [
@@ -67,7 +81,7 @@ class _ProductListState extends State<ProductList> {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
-              const Expanded(
+              /*const Expanded(
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: "Search",
@@ -75,6 +89,41 @@ class _ProductListState extends State<ProductList> {
                     enabledBorder: border,
                     focusedBorder: border,
                   ),
+                ),
+              )*/
+              DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+                  borderRadius: BorderRadius.circular(10),
+                  dropdownColor: Theme.of(context).colorScheme.primary,
+                  style:  const TextStyle(color: Color.fromARGB(255, 0, 0, 0),fontSize: 16,fontWeight: FontWeight.bold),
+                  iconSize: 30,
+                  icon: const Icon(Icons.sort , color: Colors.black,),
+                  elevation: 0,
+                  enableFeedback: false,
+                  isDense: true,
+                  isExpanded: false,
+                   // This shows the current value
+                  items: const [
+                    DropdownMenuItem(
+                      
+                      value: 'A-Z',
+                      child: Text('A-Z'),
+                    ),
+                    DropdownMenuItem(
+                      value: 'Price Low to High',
+                      child: Text('Price: Low to High'),
+                    ),
+                    DropdownMenuItem(
+                      value: 'Price High to Low',
+                      child: Text('Price: High to Low'),
+                    ),
+                  ],
+                  onChanged: (value) {
+                    if (value != null) {
+                      sortProducts(value); // Call your sorting function here
+                    }
+                  },
+                  value: null,
                 ),
               )
             ],
