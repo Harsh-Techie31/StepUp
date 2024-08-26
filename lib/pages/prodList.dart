@@ -1,7 +1,9 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:stepup/global_var.dart';
-import 'package:stepup/prod_details.dart';
-import 'package:stepup/product_card.dart';
+import 'package:stepup/providers/global_var.dart';
+import 'package:stepup/pages/prod_details.dart';
+import 'package:stepup/pages/product_card.dart';
 
 class ProductList extends StatefulWidget{
   const ProductList({super.key});
