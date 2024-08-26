@@ -123,6 +123,7 @@ class _ProdDetailsState extends State<ProdDetails> {
                               });
                               ScaffoldMessenger.of(context)
                                   .showSnackBar(const SnackBar(
+                                    duration: Duration(milliseconds: 500),
                                 content: Text("Product Added!"),
                               ));
 

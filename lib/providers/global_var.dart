@@ -9,7 +9,7 @@ final products = [
   },
   {
     'id': '1',
-    'title': 'High Jordans',
+    'title': 'Nike High Jordans',
     'price': 20.12,
     'imageUrl': 'assets/images/2.png',
     'company': 'Nike',
@@ -36,7 +36,7 @@ final products = [
     'title': 'Sketchers Rough',
     'price': 39.69,
     'imageUrl': 'assets/images/5.png',
-    'company': 'Sketchers',
+    'company': 'Skechers',
     'sizes': [8, 9, 10],
   },
 ];
